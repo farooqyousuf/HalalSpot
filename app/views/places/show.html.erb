@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="span6 offset3">
+		<p>
+		  <b>Name:</b>
+		  <%= @place.name %>
+		</p>
+
+		<p>
+		  <b>Address:</b>
+		  <%= @place.address %>
+		</p>
+
+		<p>
+		  <b>Description:</b>
+		  <%= @place.description %>
+		</p>
+
+		<p>
+		  <b>Website:</b>
+		  <%= @place.website %>
+		</p>
+
+
+		<%= link_to 'Edit', edit_place_path(@place) %> |
+		<%= link_to 'Back', places_path %>
+	</div>
+</div>
