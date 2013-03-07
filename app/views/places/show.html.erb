@@ -1,32 +1,19 @@
 <div class="row">
-	<div class="span6 offset3">
-		<p>
-		  <b>Name:</b>
-		  <%= @place.name %>
-		</p>
-
-		<p>
-		  <b>Address:</b>
-		  <%= @place.address %>
-		</p>
-		
-		<p>
-		  <b>Type:</b>
-		  <%= @place.category %>
-		</p>
-
-		<p>
-		  <b>Description:</b>
-		  <%= @place.description %>
-		</p>
-
-		<p>
-		  <b>Website:</b>
-		  <%= @place.website %>
-		</p>
-
-
-		<%= link_to 'Edit', edit_place_path(@place) %> |
-		<%= link_to 'Back', places_path %>
-	</div>
+	<div class="span 9">
+				<div class="row">
+					<div class="page-header"><h1><%= @place.name %></h1></div>
+					<div class="span4"><%= image_tag @place.image %></div>
+					<div class="span5 ">
+						<strong>Name:</strong><br><%= @place.name %><br><br>
+						<strong>Address:</strong><br><%= @place.address %><br><br>
+						<strong>State:</strong><br><%= @place.state %><br><br>
+						<strong>City:</strong><br><%= @place.city %><br><br>
+						<strong>Type:</strong><br><%= @place.category %><br><br>
+						<strong>Description:</strong><br><%= @place.description %><br><br>
+						<strong>Website:</strong><br><%= @place.website %><br><br>
+						<%= link_to 'Edit', edit_place_path(@place) %> |
+						<%= link_to 'Back', places_path %>
+					</div>
+				</div>
+		</div>
 </div>

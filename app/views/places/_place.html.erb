@@ -1,10 +1,12 @@
 <tr>
-  <td><%= place.name %></td>
+	<th><%= image_tag place.image(:medium)%></th>
+	<th><%= link_to place.name, place %></th>
   <td><%= place.address %></td>
+  <td><%= place.state %></td>
+  <td><%= place.city %></td>
 	<td><%= place.category %></td>
   <td><%= place.description %></td>
   <td><%= place.website %></td>
-  <td><%= link_to 'Show', place %></td>
 
 	<% if current_user.admin? %>
 	  <td><%= link_to 'Edit', edit_place_path(place) %></td>
