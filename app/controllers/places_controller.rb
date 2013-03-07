@@ -1,4 +1,6 @@
 class PlacesController < ApplicationController
+  before_filter :authenticate_user!, except: [:index]
+  
   # GET /places
   # GET /places.json
   def index

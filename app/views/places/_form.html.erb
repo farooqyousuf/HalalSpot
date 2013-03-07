@@ -4,6 +4,7 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :address %>
+		<%= f.select :category, options_for_select(["Masjid", "Islamic School", "Restaurant", "Business"]) %>
     <%= f.input :description %>
     <%= f.input :website %>
   </div>

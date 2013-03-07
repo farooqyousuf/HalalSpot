@@ -5,7 +5,8 @@ class CreatePlaces < ActiveRecord::Migration
       t.string :address
       t.string :description
       t.string :website
-
+      t.string :category
+      
       t.timestamps
     end
   end

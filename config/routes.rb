@@ -4,7 +4,7 @@ HalalSpot::Application.routes.draw do
 
     devise_for :users
 
-  root :to => 'static_pages#home'
+  root :to => 'places#index'
   
   match 'about' => 'static_pages#about'
   match 'help' => 'static_pages#help'
