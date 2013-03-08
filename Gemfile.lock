@@ -51,7 +51,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    gmaps4rails (1.5.6)
+    geocoder (1.1.1)
     hike (1.2.1)
     i18n (0.6.4)
     journey (1.0.4)
@@ -143,7 +143,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
-  gmaps4rails
+  geocoder
   jquery-rails
   less-rails
   paperclip (~> 3.0)

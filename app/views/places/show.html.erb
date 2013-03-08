@@ -11,6 +11,17 @@
 						<strong>Type:</strong><br><%= @place.category %><br><br>
 						<strong>Description:</strong><br><%= @place.description %><br><br>
 						<strong>Website:</strong><br><%= @place.website %><br><br>
+
+						<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@place.latitude}%2C#{@place.longitude}" %>
+						
+
+						<h3>Nearby Halal Spots</h3>
+						<ul>
+							<% for place in @place.nearbys(30) %>
+								<li><%= link_to place.name, place %> (<%= place.distance.round(2) %> miles)</li>
+							<% end %>
+						</ul>
+						
 						<%= link_to 'Edit', edit_place_path(@place) %> |
 						<%= link_to 'Back', places_path %>
 					</div>

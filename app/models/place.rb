@@ -13,6 +13,9 @@ class Place < ActiveRecord::Base
   # def gmaps4rails_address
   #     "#{address}, #{city}, #{state}, #{zipcode}"
   #   end
+
+  geocoded_by :zipcode
+  after_validation :geocode, :if => :address_changed?
   
 end
 

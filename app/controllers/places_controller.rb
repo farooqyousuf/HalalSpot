@@ -4,9 +4,12 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    @places = Place.all
+    if params[:search].present?
+      @places = Place.near(params[:search], 50, :order => :distance)
+    else
+      @places = Place.all
+    end
     # @json = @places.to_gmaps4rails For Google Maps
-    
 
     respond_to do |format|
       format.html # index.html.erb

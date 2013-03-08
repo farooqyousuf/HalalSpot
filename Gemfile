@@ -4,7 +4,8 @@ gem 'rails', '3.2.12'
 gem 'devise'
 gem 'simple_form'
 gem 'paperclip', "~> 3.0"
-gem 'gmaps4rails'
+# gem 'gmaps4rails' For Google Maps
+gem 'geocoder'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
