@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
   # GET /places.json
   def index
     @places = Place.all
-    @json = @places.to_gmaps4rails
+    # @json = @places.to_gmaps4rails For Google Maps
     
 
     respond_to do |format|
