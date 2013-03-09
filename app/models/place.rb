@@ -16,6 +16,8 @@ class Place < ActiveRecord::Base
   #   end
 
   geocoded_by :zipcode
+  geocoded_by :city
+  geocoded_by :state
   after_validation :geocode, :if => :address_changed?
   
 end

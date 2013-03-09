@@ -1,3 +1,9 @@
+GIT
+  remote: git://gist.github.com/2117187.git
+  revision: 5a0ece093d123c324839e482d774f623cd5df8a0
+  specs:
+    bootstrap-components-helpers (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -141,6 +147,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-components-helpers!
   coffee-rails (~> 3.2.1)
   devise
   geocoder

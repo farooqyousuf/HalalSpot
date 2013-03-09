@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130308014942) do
+ActiveRecord::Schema.define(:version => 20130309182607) do
 
   create_table "places", :force => true do |t|
     t.string   "name"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20130308014942) do
     t.datetime "image_updated_at"
     t.string   "city"
     t.string   "state"
-    t.integer  "zipcode"
+    t.string   "zipcode"
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"

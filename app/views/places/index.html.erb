@@ -7,28 +7,31 @@
 	<h2>Newly Added Halal Spots</h2>
 
 		<%= form_tag places_path, :method => :get do %>
-				<%= text_field_tag :search, params[:search], placeholder: "Enter your zipcode", class: "search-query"  %>
+				<%= text_field_tag :search, params[:search], placeholder: "Enter your zipcode or city", class: "search-query"  %>
 				<%= submit_tag "Search Nearby", :name => nil, class: "btn"%>
 		<% end %>
 
-	<table class="table table-hover table-condensed">
-		<thead>
-	  		<tr>			
-				 <th>Image</th>
-			   <th>Name</th>
-			   <th>Address</th>
-				 <th>State</th>
-				 <th>City</th>
-				 <th>Type</th>
-			   <th>Website</th>
-			 </tr>
-		</thead>
-
-		<tbody>
-			<%= render @places %>
-		</tbody>
-
-	</table>
+			<ul class="nav nav-tabs">
+					<li class="active"><a href="#tab1" data-toggle="tab">Masjids</a></li>
+					<li><a href="#tab2" data-toggle="tab">Islamic Schools</a></li>
+					<li><a href="#tab3" data-toggle="tab">Restaurants</a></li>		
+					<li><a href="#tab4" data-toggle="tab">Businesses</a></li>
+				</ul>
+			
+			<div class="tab-content">
+				<div class="tab-pane active" id="tab1">
+					<%= render :partial => "places", :locals => {:places_container => @masjids} %>
+				</div>
+				<div class="tab-pane" id="tab2">
+					<%= render :partial => "places", :locals => {:places_container => @islamic_schools} %>
+				</div>
+				<div class="tab-pane" id="tab3">
+					<%= render :partial => "places", :locals => {:places_container => @restaurants} %>
+				</div>
+				<div class="tab-pane" id="tab4">
+					<%= render :partial => "places", :locals => {:places_container => @businesses} %>
+				</div>
+			</div>
 </div>
 
 <br />

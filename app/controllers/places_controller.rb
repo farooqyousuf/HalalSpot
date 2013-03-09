@@ -9,6 +9,12 @@ class PlacesController < ApplicationController
     else
       @places = Place.all
     end
+    
+    @masjids = Place.where("category = ?", "Masjid")
+    @islamic_schools = Place.where("category = ?", "Islamic School")
+    @restaurants = Place.where("category = ?", "Restaurant")
+    @businesses = Place.where("category = ?", "Business")
+    
     # @json = @places.to_gmaps4rails For Google Maps
 
     respond_to do |format|
