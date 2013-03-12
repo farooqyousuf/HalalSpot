@@ -20,7 +20,7 @@ namespace :db do
     Place.create!(name: "Al-Minhaal Academy",
                   address: "1764 New Durham Road",
                   state: "New Jersey",
-                  city: "Sout Plainfield",
+                  city: "South Plainfield",
                   zipcode: "07080",
                   category: "Islamic School",
                   description: "Kids Islamic School in NJ",

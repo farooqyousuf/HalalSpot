@@ -32,7 +32,7 @@
 						<h3>Nearby Halal Spots</h3>
 						<ul>
 						<% for place in @place.nearbys(30) %>
-						<li><%= link_to place.name, place %> (<%= place.distance.round(2) %> miles)</li>
+						<li><%= link_to place.name, place %> (<%= place.distance.to_f.round(2) %> miles)</li>
 						<% end %>
 						</ul>
 						</div>
