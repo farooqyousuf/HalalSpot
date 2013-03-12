@@ -7,13 +7,13 @@ class PlacesController < ApplicationController
     if params[:search].present?
       @places = Place.near(params[:search], 50, :order => :distance)
     else
-      @places = Place.all
+      @places = Place.scoped
     end
     
-    @masjids = Place.where("category = ?", "Masjid")
-    @islamic_schools = Place.where("category = ?", "Islamic School")
-    @restaurants = Place.where("category = ?", "Restaurant")
-    @businesses = Place.where("category = ?", "Business")
+    @masjids = @places.where("category = ?", "Masjid")
+    @islamic_schools = @places.where("category = ?", "Islamic School")
+    @restaurants = @places.where("category = ?", "Restaurant")
+    @businesses = @places.where("category = ?", "Business")
     
     # @json = @places.to_gmaps4rails For Google Maps
 

@@ -15,10 +15,12 @@ class Place < ActiveRecord::Base
   #     "#{address}, #{city}, #{state}, #{zipcode}"
   #   end
 
-  geocoded_by :zipcode
-  geocoded_by :city
-  geocoded_by :state
+  geocoded_by :complete_address
   after_validation :geocode, :if => :address_changed?
+  
+  def complete_address
+    [address, city, state, zipcode].compact.join(', ')
+  end
   
 end
 
