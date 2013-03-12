@@ -1,28 +1,47 @@
+<div class="span11">
 <div class="row">
-		<div class="page-header"><h2><%= @place.name %> | <%= @place.city %>,<%= @place.state %></h2></div>
-			<div class="span4">
-				<div class="img-polaroid"><%= image_tag @place.image %></div>
-			</div>	
-			
-	<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=
-	#{@place.latitude}%2C#{@place.longitude}" %>
+			<div class="page-header"><h2><%= @place.name %> | <%= @place.city %>,<%= @place.state %></h2></div>
+		
+					<div class="span5">
+						<div class="img-polaroid"><%= image_tag @place.image %></div>
+					</div>
 
-	<div class="address">
-	<strong><%= @place.name %></strong><br>
-	<strong>Type of Halal Spot:</strong><br><%= @place.category %><br><br>
-	<strong>Description:</strong><br><%= @place.description %><br><br>
-	<strong>Website:</strong><br><%= @place.website %><br><br>
-	<%= @place.address %><br>
-	<%= @place.city %>, <%= @place.state %>
+			<div class="span5">	
+				<div class="img-polaroid">	
+			<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=
+			#{@place.latitude}%2C#{@place.longitude}" %>
+				</div>
+			</div>
 
-	<h3>Nearby Halal Spots</h3>
-	<ul>
-	<% for place in @place.nearbys(30) %>
-	<li><%= link_to place.name, place %> (<%= place.distance.round(2) %> miles)</li>
-	<% end %>
-	</ul>
+
+			<div class="row">
+				<div class="span10">
+					<div class="well">
+					<strong>Type of Halal Spot:</strong><br><%= @place.category %><br><br>
+					<strong>Description:</strong><br><%= @place.description %><br><br>
+					<strong>Website:</strong><br><%= @place.website %><br><br>
+					<%= @place.address %><br>
+					<%= @place.city %>, <%= @place.state %>
+				</div>
+				</div>
+		</div>
+
+		<div class="well">
+				<div class="row">
+					<div class="span3">
+						<h3>Nearby Halal Spots</h3>
+						<ul>
+						<% for place in @place.nearbys(30) %>
+						<li><%= link_to place.name, place %> (<%= place.distance.round(2) %> miles)</li>
+						<% end %>
+						</ul>
+						</div>
+				</div>
+		</div>
 	
-	<%= link_to 'Edit', edit_place_path(@place) %> |
-							<%= link_to 'Back', places_path %>
-</div>	
+		<%= link_to 'Edit', edit_place_path(@place) %> |
+		<%= link_to 'Back', places_path %>
+	
+	</div>	
 
+</div>
