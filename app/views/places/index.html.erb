@@ -1,21 +1,27 @@
-<% if user_signed_in? %>
-
 <!-- For Google Maps -->
 <% #<%= gmaps4rails(@json) %>
 
 <div class="row">
-	<h2>Newly Added Halal Spots</h2>
 
-		<%= form_tag places_path, :method => :get do %>
-				<%= text_field_tag :search, params[:search], placeholder: "Enter your zipcode or city", class: "search-query"  %>
-				<%= submit_tag "Search Nearby", :name => nil, class: "btn"%>
-		<% end %>
+		<div class="well">
+				<div class="text-center">
+					<h1>Finding a Halal Spot made simple.</h1>
+					<p class="lead">With one search you can find all the halal spots near you!</p>
+					<%= form_tag places_path, :method => :get do %>
+							<%= text_field_tag :search, params[:search], placeholder: "Enter your zipcode or city", class: "search-query"%>
+							<%= submit_tag "Search Nearby", :name => nil, class: "btn"%>
+					<% end %>
+				</div>
+		</div>
+		
+<%     if params[:search].present? %>		
+		<h2>Halal Spots</h2>
 
 			<ul class="nav nav-tabs">
-					<li class="active"><a href="#tab1" data-toggle="tab">Masjids</a></li>
-					<li><a href="#tab2" data-toggle="tab">Islamic Schools</a></li>
-					<li><a href="#tab3" data-toggle="tab">Restaurants</a></li>		
-					<li><a href="#tab4" data-toggle="tab">Businesses</a></li>
+					<li class="active"><a href="#tab1" data-toggle="tab">Masjids (<%= @masjids.count %>)</a></li>
+					<li><a href="#tab2" data-toggle="tab">Islamic Schools (<%= @islamic_schools.count %>)</a></li>
+					<li><a href="#tab3" data-toggle="tab">Restaurants (<%= @restaurants.count %>)</a></li>		
+					<li><a href="#tab4" data-toggle="tab">Businesses (<%= @businesses.count %>)</a></li>
 				</ul>
 			
 			<div class="tab-content">
@@ -32,12 +38,12 @@
 					<%= render :partial => "places", :locals => {:places_container => @businesses} %>
 				</div>
 			</div>
-</div>
+			
+<% else %>			
 
-<br />
-
-<% else %>
-
-<%= render 'static_pages/home' %>
+<div class="text-center"><h1>Search Above!</h1></div>
 
 <% end %>
+
+</div>
+

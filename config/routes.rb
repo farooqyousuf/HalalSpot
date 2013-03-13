@@ -1,8 +1,7 @@
 HalalSpot::Application.routes.draw do
   resources :places
 
-
-    devise_for :users
+  devise_for :users
 
   root :to => 'places#index'
   

@@ -6,7 +6,6 @@
 	   <th>Address</th>
 		 <th>State</th>
 		 <th>City</th>
-		 <th>Type</th>
 	   <th>Website</th>
 	 </tr>
 </thead>
@@ -17,13 +16,10 @@
 	  <td><%= place.address %></td>
 	  <td><%= place.state %></td>
 	  <td><%= place.city %></td>
-		<td><%= place.category %></td>
-	  <td><%= place.website %></td>
+  	<td><%= place.website %></td>
 
-		<% if current_user.admin? %>
-		  <td><%= link_to 'Edit', edit_place_path(place) %></td>
-		  <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		<% end %>
+		  <!-- <td><%= link_to 'Edit', edit_place_path(place) %></td>
+		  <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
 		</tr>
 <% end %>
 </table>
