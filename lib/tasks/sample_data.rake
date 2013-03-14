@@ -15,7 +15,7 @@ namespace :db do
                   city: "Sterling",
                   zipcode: "20164",
                   category: "Masjid",
-                  description: "ISNA/Sufi Masjid",
+                  description: "ISNA Masjid",
                   website: "adamscenter.org")
     Place.create!(name: "Al-Minhaal Academy",
                   address: "1764 New Durham Road",

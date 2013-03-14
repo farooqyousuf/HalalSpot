@@ -1,5 +1,8 @@
 HalalSpot::Application.routes.draw do
-  resources :places
+
+  resources :places do
+    resources :reviews
+  end
 
   devise_for :users
 

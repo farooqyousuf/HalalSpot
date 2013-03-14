@@ -26,15 +26,39 @@
 						<strong>Website:</strong><br><%= @place.website %><br><br>
 						<strong>Address:</strong><br><%= @place.address %><br>
 						<%= @place.city %>, <%= @place.state %> <%= @place.zipcode %>
+					</div>
+				</div>
+			</div>		
+			
+			<div class="row">
+				<div class="span10">
+					<div class="well">
 						<h3>Nearby Halal Spots</h3>
-						<ul>
 						<% for place in @place.nearbys(30) %>
 						<li><%= link_to place.name, place %> (<%= place.distance.to_f.round(2) %> miles)</li>
 						<% end %>
-						</ul>
+						</div>
 					</div>
 				</div>
-			</div>
+				
+				<div class="row">
+					<div class="span10">
+						<div class="well">
+								<h3>Reviews</h3>
+								<%= render @place.reviews %>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="span10">
+							<div class="well">
+								<h3>Add a review:</h3>
+								<%= render "reviews/form" %>
+							</div>
+						</div>
+					</div>
+					
 
 		<%= link_to 'Edit', edit_place_path(@place) %> |
 		<%= link_to 'Back', places_path %>

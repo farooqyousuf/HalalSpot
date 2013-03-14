@@ -18,6 +18,8 @@ class Place < ActiveRecord::Base
   geocoded_by :complete_address
   after_validation :geocode, :if => :address_changed?
   
+  has_many :reviews
+  
   def complete_address
     [address, city, state, zipcode].compact.join(', ')
   end
