@@ -3,7 +3,7 @@ class Place < ActiveRecord::Base
   # acts_as_gmappable For Google Maps                              
   
   attr_accessible :address, :description, :name, :website, :category, :image, :state, :city, :zipcode
-  has_attached_file :image, styles: { medium: "150x150", large: "470x310" } #:default_url => 'assets/images/default_small_avatar.png'
+  has_attached_file :image, styles: { large: "470x310", medium: "150x150" } #:default_url => 'assets/images/default_small_avatar.png'
   
   
   validates :name, :address, :state, :city, :zipcode, :category, presence: true
