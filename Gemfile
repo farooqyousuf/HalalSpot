@@ -8,6 +8,8 @@ gem 'aws-sdk'
 # gem 'gmaps4rails' For Google Maps
 gem 'geocoder'
 gem 'bootstrap-components-helpers', :git => 'git://gist.github.com/2117187.git'
+gem 'mechanize'
+gem "nokogiri"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

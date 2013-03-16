@@ -3,10 +3,10 @@ class Place < ActiveRecord::Base
   # acts_as_gmappable For Google Maps                              
   
   attr_accessible :address, :description, :name, :website, :category, :image, :state, :city, :zipcode
-  has_attached_file :image, styles: { large: "470x310", medium: "150x150" } #:default_url => 'assets/images/default_small_avatar.png'
+  has_attached_file :image, styles: { large: "470x310", icon: "100x100" }, :default_url => "missing_:style.png"
   
   
-  validates :name, :address, :state, :city, :zipcode, :category, presence: true
+  validates :name, :state, :category, presence: true
   validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
                                size: { less_than: 5.megabytes }
   
@@ -15,8 +15,8 @@ class Place < ActiveRecord::Base
   #     "#{address}, #{city}, #{state}, #{zipcode}"
   #   end
 
-  geocoded_by :complete_address
-  after_validation :geocode, :if => :address_changed?
+  geocoded_by :state
+  after_validation :geocode, :if => :zipcode_changed?
   
   has_many :reviews
   
