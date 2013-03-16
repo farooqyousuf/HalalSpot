@@ -15,13 +15,18 @@ class Place < ActiveRecord::Base
   #     "#{address}, #{city}, #{state}, #{zipcode}"
   #   end
 
-  geocoded_by :state
-  after_validation :geocode, :if => :zipcode_changed?
+  geocoded_by :complete_address
+  after_validation :geocode, :if => :check_address_changed?
   
   has_many :reviews
   
   def complete_address
     [address, city, state, zipcode].compact.join(', ')
+  end
+  
+  def check_address_changed?
+    attrs = %w(address city state zipcode)
+    attrs.any?{|a| send "#{a}_changed?"}
   end
   
 end

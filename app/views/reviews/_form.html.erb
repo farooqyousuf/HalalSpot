@@ -1,5 +1,4 @@
 <%= simple_form_for([@place, @place.reviews.build]) do |f| %>
-
 	<%= f.error_notification %>
 	<%= f.full_error :reviewer, class: "alert alert-error" %>
 	<%= f.full_error :body, class: "alert alert-error" %>
