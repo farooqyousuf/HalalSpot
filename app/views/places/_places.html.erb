@@ -7,18 +7,22 @@
 		 <th>State</th>
 		 <th>City</th>
 	   <th>Website</th>
+		 <th>Distance</th>
 	 </tr>
 </thead>
-<% places_container.each do |place| %>
-	<tr>
-		<th><%= image_tag place.image(:icon)%></th>
-		<th><%= link_to place.name, place, :target => "_blank" %></th>
-	  <td><%= place.address %></td>
-	  <td><%= place.state %></td>
-	  <td><%= place.city %></td>
-  	<td><%= place.website %></td>
-		  <!-- <td><%= link_to 'Edit', edit_place_path(place) %></td>
-		  <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-		</tr>
-<% end %>
+
+			<% places_container.each do |place| %>
+				<tr>
+					<th><%= image_tag place.image(:icon)%></th>
+					<th><%= link_to place.name, place, :target => "_blank" %></th>
+				  <td><%= place.address %></td>
+				  <td><%= place.state %></td>
+				  <td><%= place.city %></td>
+			  	<td><%= place.website %></td>
+				  <td><%= place.distance.to_f.round(2) %> miles </td>
+					  <!-- <td><%= link_to 'Edit', edit_place_path(place) %></td>
+					  <td><%= link_to 'Destroy', place, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+					</tr>
+					<% end %>
+		
 </table>

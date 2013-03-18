@@ -30,22 +30,26 @@
 				</div>
 			</div>		
 			
-			<div class="row">
-				<div class="span10">
-					<div class="well">
-						<h3>Nearby Halal Spots</h3>
-						<% for place in @place.nearbys(30) %>
-						<li><%= link_to place.name, place %> (<%= place.distance.to_f.round(2) %> miles)</li>
-						<% end %>
-						</div>
-					</div>
-				</div>
+			<!-- <div class="row">
+							<div class="span10">
+								<div class="well">
+									<h3>Nearby Halal Spots</h3>
+									<% for place in @place.nearbys(30) %>
+									<li><%= link_to place.name, place %> (<%= place.distance.to_f.round(2) %> miles)</li>
+									<% end %>
+									</div>
+								</div>
+							</div> -->
 				
 				<div class="row">
 					<div class="span10">
 						<div class="well">
 								<h3>Reviews</h3>
-								<%= render @place.reviews %>
+								<% if @place.reviews.any? %>
+									<%= render @place.reviews %>
+								<% else %>
+									<p class="lead">Sorry! There are no reviews yet!</p>
+								<% end %>
 							</div>
 						</div>
 					</div>

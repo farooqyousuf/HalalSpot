@@ -8,8 +8,6 @@ task :testing2 => :environment do
   agent = Mechanize.new
 
   page = agent.get("http://www.salatomatic.com/b/United-States+125")    
-
-  
   
     #loops through all state links
     page.search('.subtitleLink a').map{|a| page.uri.merge a[:href]}.each do |uri|
@@ -20,7 +18,6 @@ task :testing2 => :environment do
             
               page2.search('.subtitleLink a').map{|a| page2.uri.merge a[:href]}.each do |uri|
                 page3 = agent.get uri
-              
 
                 #loops through all places in each region  
                   page3.search('.subtitleLink a').map{|a| page3.uri.merge a[:href]}.each do |uri|
@@ -30,6 +27,7 @@ task :testing2 => :environment do
                     rescue
                       next
                     end
+                    
                   end
             end             
       end

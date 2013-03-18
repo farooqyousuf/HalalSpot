@@ -119,6 +119,8 @@ GEM
       activesupport (= 3.2.12)
       bundler (~> 1.0)
       railties (= 3.2.12)
+    rails_autolink (1.0.9)
+      rails (~> 3.1)
     railties (3.2.12)
       actionpack (= 3.2.12)
       activesupport (= 3.2.12)
@@ -129,6 +131,7 @@ GEM
     rake (10.0.3)
     rdoc (3.12.2)
       json (~> 1.4)
+    rinku (1.2.2)
     sass (3.2.6)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -182,6 +185,8 @@ DEPENDENCIES
   paperclip (~> 3.0)
   pg
   rails (= 3.2.12)
+  rails_autolink
+  rinku (~> 1.2.2)
   sass-rails (~> 3.2.3)
   simple_form
   sqlite3
