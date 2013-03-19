@@ -23,7 +23,8 @@ task :testing2 => :environment do
                   page3.search('.subtitleLink a').map{|a| page3.uri.merge a[:href]}.each do |uri|
                     begin
                      page4 = agent.get uri
-                      puts page4.at('.titleBM')
+                      puts page4.at('.titleBM').text
+                      puts page4.at('.titleBM').next.text
                     rescue
                       next
                     end
