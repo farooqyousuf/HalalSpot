@@ -5,9 +5,9 @@ class PlacesController < ApplicationController
   # GET /places.json
   def index
     if params[:search].present?
-      @places = Place.near(params[:search], 50, :order => :distance)
+      @places = Place.near(params[:search], 50, :order => :distance).paginate(:page => params[:page], :per_page => 10)
     else
-      @places = Place.scoped
+      @places = Place.scoped.paginate(:page => params[:page], :per_page => 10)
     end
     
     @masjids = @places.where("category = ?", "Masjid")

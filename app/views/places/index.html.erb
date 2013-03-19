@@ -26,15 +26,19 @@
 			
 			<div class="tab-content">
 				<div class="tab-pane active" id="tab1">
+					<%= will_paginate @masjids %>
 					<%= render :partial => "places", :locals => {:places_container => @masjids} %>
 				</div>
 				<div class="tab-pane" id="tab2">
+					<%= will_paginate @islamic_schools %>
 					<%= render :partial => "places", :locals => {:places_container => @islamic_schools} %>
 				</div>
 				<div class="tab-pane" id="tab3">
+					<%= will_paginate @restaurants %>
 					<%= render :partial => "places", :locals => {:places_container => @restaurants} %>
 				</div>
 				<div class="tab-pane" id="tab4">
+					<%= will_paginate @businesses %>
 					<%= render :partial => "places", :locals => {:places_container => @businesses} %>
 				</div>
 			</div>

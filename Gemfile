@@ -10,8 +10,7 @@ gem 'geocoder'
 gem 'bootstrap-components-helpers', :git => 'git://gist.github.com/2117187.git'
 gem 'mechanize'
 gem 'nokogiri'
-gem 'rinku', '~> 1.2.2', :require => 'rails_rinku'
-gem 'rails_autolink'
+gem 'will_paginate', '~> 3.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
