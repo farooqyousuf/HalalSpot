@@ -25,6 +25,19 @@ task :testing2 => :environment do
                      page4 = agent.get uri
                       puts page4.at('.titleBM').text
                       puts page4.at('.titleBM').next.text
+                      
+                      name = page4.at('.titleBM').text
+                      addy = page4.at('.titleBM').next.text
+                      street, city, state, zipcode = addy.match(/(.*), (.*), ([A-Z]{2}) (\d{5})/).captures
+                      
+                      Place.create!(:name => name.strip, 
+                                    :address => street.strip,
+                                    :city => city.strip,
+                                    :state => state.strip,
+                                    :zipcode => zipcode.strip,
+                                    :category => "Masjid",
+                                    :description => "Normal masjid")
+                      
                     rescue
                       next
                     end

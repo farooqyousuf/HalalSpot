@@ -6,7 +6,7 @@ class Place < ActiveRecord::Base
   has_attached_file :image, styles: { large: "470x310", icon: "100x100" }, :default_url => "missing_:style.png"
   
   
-  validates :name, :state, :category, presence: true
+  validates :name, :address, :city, :state, :zipcode, :category, presence: true
   validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
                                size: { less_than: 5.megabytes }
   
