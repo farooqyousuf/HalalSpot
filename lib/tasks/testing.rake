@@ -15,15 +15,20 @@ task :testing => :environment do
                      page4 = agent.get uri
                       puts page4.at('.titleBM').text
                       puts page4.at('.titleBM').next.text
+                      
                       name = page4.at('.titleBM').text
                       addy = page4.at('.titleBM').next.text
-                      street, city, state, zip = addy.match(/(.*), (.*), ([A-Z]{2}) (\d{5})/).captures
                       
+                      street, city, state, zip = addy.match(/(.*), (.*), ([A-Z]{2}) (\d{5})/).captures
+                      blah = page4.at('.normalLink').text.match(/(\D\d{3}\D\s\d{3}\D\d{4})/).captures                      
+                      puts blah
+                                            
                       Place.create!(:name => name.strip, 
                                     :address => street.strip,
                                     :city => city.strip,
                                     :state => state.strip,
                                     :zipcode => zip.strip,
+                                    :phone => blah,
                                     :category => "Masjid",
                                     :description => "Normal masjid")
                       

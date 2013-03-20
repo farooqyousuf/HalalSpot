@@ -2,7 +2,7 @@ class Place < ActiveRecord::Base
   
   # acts_as_gmappable For Google Maps                              
   
-  attr_accessible :address, :description, :name, :website, :category, :image, :state, :city, :zipcode
+  attr_accessible :address, :description, :name, :website, :category, :image, :state, :city, :zipcode, :phone
   has_attached_file :image, styles: { large: "470x310", icon: "100x100" }, :default_url => "missing_:style.png"
   
   

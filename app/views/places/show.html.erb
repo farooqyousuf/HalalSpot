@@ -1,6 +1,10 @@
 <div class="span11">
 	<div class="row">
-		<div class="page-header"><h2><%= @place.name %> | <%= @place.city %>,<%= @place.state %></h2></div>
+		
+		<div class="page-header"><h2><%= @place.name %> | <%= @place.city %>, <%= @place.state %></h2>
+					<%= link_to 'Edit', edit_place_path(@place), title: 'Click if you wish to edit this Halal Spot', rel: 'tooltip', "data-placement" => "bottom" %> |
+		 <%= link_to 'Spot Not Sunni', "#", title: 'If this spot is not Sunni, click here and let us know.', rel: 'tooltip', "data-placement" => "bottom" %> | <%= link_to 'Back', places_path %>
+		</div>
 
 			<div class="row">
 				<div class="span5">
@@ -25,7 +29,9 @@
 						<strong>Description:</strong><br><%= @place.description %><br><br>
 						<strong>Website:</strong><br><%= @place.website %><br><br>
 						<strong>Address:</strong><br><%= @place.address %><br>
-						<%= @place.city %>, <%= @place.state %> <%= @place.zipcode %>
+						<%= @place.city %>, <%= @place.state %> <%= @place.zipcode %><br><br>
+						<strong>Phone Number:</strong><br><%= @place.phone %><br>
+						
 					</div>
 				</div>
 			</div>		
@@ -62,9 +68,5 @@
 							</div>
 						</div>
 					</div>
-					
-
-		<%= link_to 'Edit', edit_place_path(@place) %> |
-		<%= link_to 'Back', places_path %>
 	</div>	
 </div>
