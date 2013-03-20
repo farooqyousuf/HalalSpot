@@ -1,5 +1,5 @@
-<div class="span11">
-	<div class="row">
+<!-- <div class="span11">
+	<div class="row"> -->
 		
 		<div class="page-header"><h2><%= @place.name %> | <%= @place.city %>, <%= @place.state %></h2>
 					<%= link_to 'Edit', edit_place_path(@place), title: 'Click if you wish to edit this Halal Spot', rel: 'tooltip', "data-placement" => "bottom" %> |
@@ -23,11 +23,11 @@
 
 			<div class="row">
 				<div class="span10">
-					<div class="well">
+					<div class="well white">
 						<h3>Basic Information</h3>
 						<strong>Type of Halal Spot:</strong><br><%= @place.category %><br><br>
 						<strong>Description:</strong><br><%= @place.description %><br><br>
-						<strong>Website:</strong><br><%= @place.website %><br><br>
+						<strong>Website:</strong><br><%= link_to @place.website, "http://www.#{@place.website}" %><br><br>
 						<strong>Address:</strong><br><%= @place.address %><br>
 						<%= @place.city %>, <%= @place.state %> <%= @place.zipcode %><br><br>
 						<strong>Phone Number:</strong><br><%= @place.phone %><br>
@@ -49,7 +49,7 @@
 				
 				<div class="row">
 					<div class="span10">
-						<div class="well">
+						<div class="well white">
 								<h3><%= @place.reviews.count %> Reviews</h3>
 								<% if @place.reviews.any? %>
 									<%= render @place.reviews %>
@@ -62,11 +62,12 @@
 					
 					<div class="row">
 						<div class="span10">
-							<div class="well">
+							<div class="well white">
 								<h3>Add a review:</h3>
 								<%= render "reviews/form" %>
 							</div>
 						</div>
 					</div>
-	</div>	
-</div>
+					
+	<!-- </div>	
+</div> -->

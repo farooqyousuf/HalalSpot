@@ -20,7 +20,7 @@
 				  <td><%= place.address %></td>
 				  <td><%= place.state %></td>
 				  <td><%= place.city %></td>
-			  	<td><%= place.website %></td>
+			  	<td><%= link_to place.website, "http://#{place.website}"  %></td>
 				  <td><%= place.distance.to_f.round(2) %> miles </td>
 				  <td><%= place.reviews.count %> reviews</td>
 					  <!-- <td><%= link_to 'Edit', edit_place_path(place) %></td>
