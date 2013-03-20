@@ -33,20 +33,49 @@ body { padding: 60px; }
 // Example:
 // @linkColor: #ff0000;
 
-@navbarBackground: red;
-@navbarBackgroundHighlight: red;
+@navbarBackground: green;
+@navbarBackgroundHighlight: green;
 @navbarBrandColor: white;
 @navbarLinkColor: white;
 @navbarLinkColorHover: white;
 
-.hero-unit{
+background: url("halalspot_bg.png");
+
+/*
+.footer_image {
+	background-image: url("halalspot_bg.png");
+	background-repeat: repeat;
+	width: 75%;
+	height: 75%;
+	
+}
+*/
+
+.listings
+{
+	background-color: #ffffff;
+}
+
+.btn-flat
+{
+	background: green;
+	margin: .5em;
+	padding: .6em 1em;
+	color: #fff;
+	text-transform: uppercase;
+	text-shadow: none;
+	border: 0;
+	box-shadow: none;
+}
+
+/*.hero-unit{
 	background-image:url('http://upload.wikimedia.org/wikipedia/commons/8/80/NYC_wideangle_south_from_Top_of_the_Rock.jpg');
 	background-size: 100%;
 	height: 500px;
 	background-repeat: no-repeat;
 	text-align: center;
 	margin-top: 40px;
-}
+}*/
 
 //Width for search bar on landing page
 .input-medium{
@@ -59,31 +88,54 @@ body { padding: 60px; }
 
 /* footer */
 
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #999;
-  a {
-	color: #555;
-	&:hover{
-		color: #222;
- 		}
-	}
-  small {
-	float: left;
-  }
-  ul {
-	float: right;
-	list-style: none;
-    li {
-	float: left;
-	margin-left: 10px;
-	}
-  }
+
+
+/*  background-image: url("halalspot_footer.png");
+  background-repeat: repeat;
+  height: 230px;
+*/
+/* Sticky footer styles
+      -------------------------------------------------- */
+
+html, body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
 }
 
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+/*  margin: 0 auto -60px;
+*/}
 
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+  height: 50px;
+}
+.footer {
+background-image: url("halalspot_footer.png");
+background-repeat: repeat;
+/*bottom: 0;
+*/left: 0;
+position: absolute;
+right: 0;
+height: 230px;
+width: 100%;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+/*@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}*/
 
 
 

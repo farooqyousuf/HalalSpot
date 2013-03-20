@@ -3,7 +3,7 @@
 		
 		<div class="page-header"><h2><%= @place.name %> | <%= @place.city %>, <%= @place.state %></h2>
 					<%= link_to 'Edit', edit_place_path(@place), title: 'Click if you wish to edit this Halal Spot', rel: 'tooltip', "data-placement" => "bottom" %> |
-		 <%= link_to 'Spot Not Sunni', "#", title: 'If this spot is not Sunni, click here and let us know.', rel: 'tooltip', "data-placement" => "bottom" %> | <%= link_to 'Back', places_path %>
+		 <%= link_to 'Not Sunni', "#", title: 'If this spot is not Sunni, click here and let us know.', rel: 'tooltip', "data-placement" => "bottom" %> | <%= link_to 'Back', places_path %>
 		</div>
 
 			<div class="row">

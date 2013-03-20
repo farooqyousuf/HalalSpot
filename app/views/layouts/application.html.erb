@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Halal Spot</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <%= yield :head %>
-</head>
-<body>
+		<head>
+		  <title>Halal Spot</title>
+		  <%= stylesheet_link_tag    "application", :media => "all" %>
+		  <%= javascript_include_tag "application" %>
+		  <%= csrf_meta_tags %>
+		  <%= yield :head %>
+		</head>
+		<body>
+		
+				<%= render 'layouts/header' %>	
 	
-	<%= render 'layouts/header' %>	
-	
-	<div class="container">
+				<div id="wrap">
 
-			<% flash.each do |name, msg| %>
-				<%= content_tag :div, msg, class: "alert alert-#{name}" unless msg.blank? %>
-				<% end %>
+							<% flash.each do |name, msg| %>
+								<%= content_tag :div, msg, class: "alert alert-#{name}" unless msg.blank? %>
+								<% end %>
 		
-		<%= yield %>
-		<!-- For Google Maps -->
-		<!-- <%= yield :scripts %> -->
+						<%= yield %>
+						<!-- For Google Maps -->
+						<!-- <%= yield :scripts %> -->
 		
-		</div>
+					</div>
 		
-	<%= render 'layouts/footer' %>
+		
+				<%= render 'layouts/footer' %>
+			
 
-</body>
+		</body>
 </html>
