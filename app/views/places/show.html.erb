@@ -27,7 +27,7 @@
 						<h3>Basic Information</h3>
 						<strong>Type of Halal Spot:</strong><br><%= @place.category %><br><br>
 						<strong>Description:</strong><br><%= @place.description %><br><br>
-						<strong>Website:</strong><br><%= link_to @place.website, "http://www.#{@place.website}" %><br><br>
+						<strong>Website:</strong><br><%= link_to @place.website, @place.website %><br><br>
 						<strong>Address:</strong><br><%= @place.address %><br>
 						<%= @place.city %>, <%= @place.state %> <%= @place.zipcode %><br><br>
 						<strong>Phone Number:</strong><br><%= @place.phone %><br>
