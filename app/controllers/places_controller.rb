@@ -5,7 +5,7 @@ class PlacesController < ApplicationController
   # GET /places.json
   def index
     if params[:search].present?
-      @places = Place.near(params[:search], 100, :order => :distance).paginate(:page => params[:page], :per_page => 10)
+      @places = Place.near(params[:search], 30, :order => :distance).paginate(:page => params[:page], :per_page => 10)
     else
       @places = Place.scoped.paginate(:page => params[:page], :per_page => 10)
     end
