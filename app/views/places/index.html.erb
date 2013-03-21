@@ -1,50 +1,71 @@
 <!-- For Google Maps -->
 <% #<%= gmaps4rails(@json) %>
 
-<div class="row">
-
-			<div class="well main">
-					<div class="text-center">
-						<h1>Finding a Halal Spot made simple.</h1>
-						<p class="lead">With one search you can find all the halal spots near you!</p>
-						<%= form_tag places_path, :method => :get do %>
-								<%= text_field_tag :search, params[:search], placeholder: "Enter your zipcode or city", class: "search-query"%>
-								<%= submit_tag "Search Nearby", :name => nil, class: "btn btn-flat"%>
-						<% end %>
+<!-- <div class="row"> -->
+		
+		<div class="container">	
+			<div class="row">	
+				<div class="span8">
+					<div class="well main white">
+							<div class="text-center">
+								<h1>Finding a Halal Spot made simple.</h1>
+								<p class="lead">With one search you can find all the halal spots near you!</p>
+								<%= form_tag places_path, :method => :get do %>
+										<%= text_field_tag :search, params[:search], placeholder: "Enter your zipcode or city", class: "search-query"%>
+										<%= submit_tag "Search Nearby", :name => nil, class: "btn btn-flat"%>
+								<% end %>
+							</div>
+						</div>
 					</div>
+					<div class="well main2 white">
+						<div class="text-center">
+							<h3>Stay connected with us!</h3>
+							<%= button_tag "Facebook", class: "btn btn-fb"%>
+							<%= button_tag "Twitter", class: "btn btn-twitter"%><br><br>
+							<p>We have <%= Place.all.count %> Halal Spots in our directory!</p><br>
+							<!-- <%= button_tag "Add Halal Spot", class: "btn btn-flat"%> -->
+						</div>
+					</div>
+				</div>
 			</div>
+				
+				
 		
 <%     if params[:search].present? %>		
 
-	<div class="well white">
-		<h2>Halal Spots: <small>These are all the halal spots near "<%= params[:search] %>"</small></h2>
+		<div class="container">
+			<!-- <div class="row"> -->
+				<div class="well white">
+					<h2>Halal Spots: <small>There are all the halal spots near "<%= params[:search] %>"</small></h2>
 
-			<ul class="nav nav-tabs">
-					<li class="active"><a href="#tab1" data-toggle="tab">Masjids (<%= @masjids.count %>)</a></li>
-					<li><a href="#tab2" data-toggle="tab">Islamic Schools (<%= @islamic_schools.count %>)</a></li>
-					<li><a href="#tab3" data-toggle="tab">Restaurants (<%= @restaurants.count %>)</a></li>		
-					<li><a href="#tab4" data-toggle="tab">Businesses (<%= @businesses.count %>)</a></li>
-				</ul>
+						<ul class="nav nav-tabs">
+								<li class="active"><a href="#tab1" data-toggle="tab">Masjids (<%= @masjids.count %>)</a></li>
+								<li><a href="#tab2" data-toggle="tab">Islamic Schools (<%= @islamic_schools.count %>)</a></li>
+								<li><a href="#tab3" data-toggle="tab">Restaurants (<%= @restaurants.count %>)</a></li>		
+								<li><a href="#tab4" data-toggle="tab">Businesses (<%= @businesses.count %>)</a></li>
+							</ul>
 			
-			<div class="tab-content">
-				<div class="tab-pane active" id="tab1">
-					<%= will_paginate @masjids %>
-					<%= render :partial => "places", :locals => {:places_container => @masjids} %>
-				</div>
-				<div class="tab-pane" id="tab2">
-					<%= will_paginate @islamic_schools %>
-					<%= render :partial => "places", :locals => {:places_container => @islamic_schools} %>
-				</div>
-				<div class="tab-pane" id="tab3">
-					<%= will_paginate @restaurants %>
-					<%= render :partial => "places", :locals => {:places_container => @restaurants} %>
-				</div>
-				<div class="tab-pane" id="tab4">
-					<%= will_paginate @businesses %>
-					<%= render :partial => "places", :locals => {:places_container => @businesses} %>
-				</div>
+						<div class="tab-content">
+							<div class="tab-pane active" id="tab1">
+								<%= will_paginate @masjids %>
+								<%= render :partial => "places", :locals => {:places_container => @masjids} %>
+							</div>
+							<div class="tab-pane" id="tab2">
+								<%= will_paginate @islamic_schools %>
+								<%= render :partial => "places", :locals => {:places_container => @islamic_schools} %>
+							</div>
+							<div class="tab-pane" id="tab3">
+								<%= will_paginate @restaurants %>
+								<%= render :partial => "places", :locals => {:places_container => @restaurants} %>
+							</div>
+							<div class="tab-pane" id="tab4">
+								<%= will_paginate @businesses %>
+								<%= render :partial => "places", :locals => {:places_container => @businesses} %>
+							</div>
+						</div>
+					</div>
+				<!-- </div> -->
 			</div>
-		</div>
 			
 <% else %>			
 
@@ -54,5 +75,5 @@
 
 <% end %>
 
-</div>
+<!-- </div> -->
 
