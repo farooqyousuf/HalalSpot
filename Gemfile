@@ -11,6 +11,9 @@ gem 'bootstrap-components-helpers', :git => 'git://gist.github.com/2117187.git'
 gem 'mechanize'
 gem 'nokogiri'
 gem 'will_paginate', '~> 3.0'
+gem 'twitter-bootstrap-rails'
+gem 'coffee-rails', '~> 3.2.1'
+gem "less-rails"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -27,9 +30,7 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'twitter-bootstrap-rails'
-  gem "less-rails"
+ 
   gem "therubyracer"
   
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
