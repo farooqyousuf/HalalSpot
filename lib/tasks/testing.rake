@@ -18,17 +18,18 @@ task :testing => :environment do
                       
                       name = page4.at('.titleBM').text
                       addy = page4.at('.titleBM').next.text
+                      more_info = page4.at('.normalLink').text
                       
                       street, city, state, zip = addy.match(/(.*), (.*), ([A-Z]{2}) (\d{5})/).captures
-                      blah = page4.at('.normalLink').text.match(/(\D\d{3}\D\s\d{3}\D\d{4})/).captures                      
-                      puts blah
+                      phone = more_info.match(/(\D\d{3}\D\s\d{3}\D\d{4})/).captures                      
+                      puts phone
                                             
                       Place.create!(:name => name.strip, 
                                     :address => street.strip,
                                     :city => city.strip,
                                     :state => state.strip,
                                     :zipcode => zip.strip,
-                                    :phone => blah,
+                                    :phone => phone[0].strip,
                                     :category => "Masjid",
                                     :description => "Normal masjid")
                       
