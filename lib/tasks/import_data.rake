@@ -1,9 +1,10 @@
-desc "Import data"
-task :import_data => :environment do
-  
-    require 'nokogiri'
-    require 'open-uri'
+require 'nokogiri'
+require 'open-uri'
 
+namespace :hs do
+  desc "Import data"
+  task :import_data => :environment do
+    
     masjids_url_array = ["http://www.salatomatic.com/c/Fairfax-amp-Loudoun+264/?t=m",
       "http://www.salatomatic.com/c/Arlington-amp-Alexandria+7",
       "http://www.salatomatic.com/c/Norfolk+116",
@@ -27,7 +28,7 @@ task :import_data => :environment do
       "http://www.zabihah.com/c/Richmond+141/?t=g",
       "http://www.zabihah.com/c/Western-Virginia+136/?t=g",
       "http://www.zabihah.com/c/Woodbridge+95/?t=g"]
-      
+        
     #VA Masjids
     masjids_url_array.each do |url|
       doc = Nokogiri::HTML(open(url))
@@ -38,7 +39,7 @@ task :import_data => :environment do
                       :description => "This is a masjid, please enter a better description if you know one.")    
       end
     end
-    
+      
     #VA Schools
     schools_url_array.each do |url|
       doc = Nokogiri::HTML(open(url))
@@ -49,7 +50,7 @@ task :import_data => :environment do
                       :description => "This is a school, please enter a better description if you know one.")    
       end
     end
-    
+      
     #VA Restaurants
     restaurants_url_array.each do |url|
       doc = Nokogiri::HTML(open(url))
@@ -60,7 +61,7 @@ task :import_data => :environment do
                       :description => "This is a restaurant, please enter a better description if you know one.")    
       end
     end
-    
+      
     #VA Businesses
     businesses_url_array.each do |url|
       doc = Nokogiri::HTML(open(url))
@@ -71,8 +72,5 @@ task :import_data => :environment do
                       :description => "This is a business, please enter a better description if you know one.")    
       end
     end
-    
-    
-    
-     
   end
+end
