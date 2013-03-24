@@ -1,5 +1,5 @@
 <!-- For Google Maps -->
-<% #<%= gmaps4rails(@json) %>
+<%= gmaps4rails(@json) %>
 
 <!-- <div class="row"> -->
 		
@@ -10,8 +10,9 @@
 							<div class="text-center">
 								<h1>Finding a Halal Spot made simple.</h1>
 								<p class="lead">With one search you can find all the halal spots near you!</p>
-								<%= form_tag places_path, :method => :get do %>
-										<%= text_field_tag :search, params[:search], placeholder: "Enter your zipcode or city", class: "search-query"%>
+								<%= form_tag places_path, :method => :get, id: 'search' do %>
+										<%= text_field_tag :q, '', placeholder: "Enter your zipcode or city", class: "search-query"%>
+										<%= hidden_field_tag :c, '' %>
 										<%= submit_tag "Search Nearby", :name => nil, class: "btn btn-flat"%>
 								<% end %>
 							</div>
@@ -31,12 +32,14 @@
 				
 				
 		
-<%     if params[:search].present? %>		
+<% if params[:search].present? %>		
+debug params
+Hi
 
 		<div class="container">
 			<!-- <div class="row"> -->
 				<div class="well white">
-					<h2>Halal Spots: <small>There are all the halal spots near "<%= params[:search] %>"</small></h2>
+					<h2>Halal Spots: <small>These are all the halal spots near "<%= params[:search] %>"</small></h2>
 
 						<ul class="nav nav-tabs">
 								<li class="active"><a href="#tab1" data-toggle="tab">Masjids (<%= @masjids.count %>)</a></li>
@@ -68,6 +71,10 @@
 			</div>
 			
 <% else %>			
+
+Hello
+<%= debug params %>
+
 
 	<!-- <%= image_tag("hs_mashup.jpg") %> -->
 

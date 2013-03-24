@@ -1,0 +1,39 @@
+function loadGeocoder() {
+ debugger;
+  var searchForm = $('form#search');
+  var query = searchForm.find('input[name="q"]');
+  var geocoder = new google.maps.Geocoder();
+ 
+  var coordinates = searchForm.find('input[name="c"]');
+  query.change(function() { coordinates.val(""); }); // clear coordinates on query change
+ 
+  searchForm.submit(function(event) {
+    if (coordinates.val() == "") {
+      event.preventDefault();
+ 
+      if ( geocoder ) {
+        geocoder.geocode({'address':searchForm.find('input[name="q"]').val()}, function(results, status) {
+          if ( status == google.maps.GeocoderStatus.OK) {
+            // Submit with new coordinates
+            coordinates.val(results[0].geometry.location);
+            searchForm.submit();
+          }
+        });
+      }
+    }
+  });
+}
+ 
+function loadScript() {
+  if ( typeof google === 'undefined' ) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "http://maps.googleapis.com/maps/api/js?<%= "key=#{ENV['MAPS_API_KEY']}&" if Rails.env.production? %>sensor=false&callback=loadGeocoder";
+    document.body.appendChild(script);
+  } 
+  else {
+    loadGeocoder();
+  }
+}
+ 
+window.onload = loadScript;

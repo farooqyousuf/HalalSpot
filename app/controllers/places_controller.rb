@@ -5,7 +5,8 @@ class PlacesController < ApplicationController
   # GET /places.json
   def index
     if params[:search].present?
-      @places = Place.near(params[:search], 100, :order => :distance).paginate(:page => params[:page], :per_page => 10)
+      location = (params[:search][:c].gsub(/[\(\)\[\]\"]/, '') || params[:q])
+      @places = Place.near(location, 100, :order => :distance).paginate(:page => params[:page], :per_page => 10)
     else
       @places = Place.scoped.paginate(:page => params[:page], :per_page => 10)
     end
@@ -15,12 +16,16 @@ class PlacesController < ApplicationController
     @restaurants = @places.where("category = ?", "Restaurant")
     @businesses = @places.where("category = ?", "Business")
     
-    # @json = @places.to_gmaps4rails For Google Maps
+    @json = @places.to_gmaps4rails
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @places }
     end
+  end
+  
+  def search
+      Place.near(params[:search][:c].gsub(/[\(\)\[\]\"]/, '') || params[:q])
   end
 
   # GET /places/1

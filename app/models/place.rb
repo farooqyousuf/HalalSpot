@@ -1,6 +1,6 @@
 class Place < ActiveRecord::Base
   
-  # acts_as_gmappable For Google Maps                              
+  acts_as_gmappable #For Google Maps                              
   
   attr_accessible :address, :description, :name, :website, :category, :image, :state, :city, :zipcode, :phone
   has_attached_file :image, styles: { large: "470x310", icon: "100x100" }, :default_url => "missing_:style.png"
@@ -12,10 +12,10 @@ class Place < ActiveRecord::Base
                                
   # validates_uniqueness_of :name
   
-  #For Google Maps                               
-  # def gmaps4rails_address
-  #     "#{address}, #{city}, #{state}, #{zipcode}"
-  #   end
+  # For Google Maps                               
+    def gmaps4rails_address
+        "#{address}, #{city}, #{state}, #{zipcode}"
+    end
 
   geocoded_by :complete_address
   after_validation :geocode, :if => :check_address_changed?
