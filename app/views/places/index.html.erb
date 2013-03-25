@@ -1,6 +1,3 @@
-<!-- For Google Maps -->
-<%= gmaps4rails(@json) %>
-
 <!-- <div class="row"> -->
 		
 		<div class="container">	
@@ -38,9 +35,11 @@ Hi
 
 		<div class="container">
 			<!-- <div class="row"> -->
+				<!-- For Google Maps -->
+				<%= gmaps4rails(@json) %>
+
 				<div class="well white">
 					<h2>Halal Spots: <small>These are all the halal spots near "<%= params[:q] %>"</small></h2>
-
 						<ul class="nav nav-tabs">
 								<li class="active"><a href="#tab1" data-toggle="tab">Masjids (<%= @masjids.count %>)</a></li>
 								<li><a href="#tab2" data-toggle="tab">Islamic Schools (<%= @islamic_schools.count %>)</a></li>
