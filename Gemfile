@@ -14,6 +14,7 @@ gem 'will_paginate', '~> 3.0'
 gem 'twitter-bootstrap-rails'
 gem 'coffee-rails', '~> 3.2.1'
 gem "less-rails"
+gem 'pry'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

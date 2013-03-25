@@ -4,8 +4,11 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    if params[:search].present?
-      location = (params[:search][:c].gsub(/[\(\)\[\]\"]/, '') || params[:q])
+    if params[:q].present?
+      # location = (params[:q][:c].gsub(/[\(\)\[\]\"]/, '') || params[:q])
+      # location = (params[:q][:c].gsub(/[\(\)\[\]\"]/, '') || params[:q])
+      location = params[:q]      
+
       @places = Place.near(location, 100, :order => :distance).paginate(:page => params[:page], :per_page => 10)
     else
       @places = Place.scoped.paginate(:page => params[:page], :per_page => 10)
