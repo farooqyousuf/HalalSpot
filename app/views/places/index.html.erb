@@ -32,8 +32,13 @@
 <% if params[:q].present? %>		
 debug params
 Hi
-<%= gmaps4rails(@json) %>
-
+	
+	 <div class="container">
+			<div id="scrolltotop">
+				<%= gmaps4rails(@json) %>
+			</div>
+	</div>
+		
 		<div class="container listings">
 			<!-- <div class="row"> -->
 				<!-- For Google Maps -->
