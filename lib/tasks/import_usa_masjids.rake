@@ -29,6 +29,8 @@ namespace :hs do
                         
                         name = page4.at('.titleBM').text
                         addy = page4.at('.titleBM').next.text
+                        description = page4.at('hr').next.text.strip
+                        
                         more_info = page4.at('.normalLink').text
                         
                         page5 = page4.link_with(:text => "Click here").click
@@ -48,7 +50,7 @@ namespace :hs do
                                       :phone => phone[0].strip,
                                       :website => website,
                                       :category => "Masjid",
-                                      :description => "No one has entered a description yet, feel free to add one if you know it!")
+                                      :description => description)
                         
                       rescue
                         next

@@ -8,7 +8,7 @@ namespace :hs do
 
     agent = Mechanize.new
 
-    page = agent.get("http://www.salatomatic.com/c/Birmingham+12")    
+    page = agent.get("http://www.salatomatic.com/c/Southwest-Houston+82")    
     
                   #loops through all places in each region  
                     page.search('.subtitleLink a').map{|a| page.uri.merge a[:href]}.each do |uri|
@@ -19,6 +19,8 @@ namespace :hs do
                         
                         name = page4.at('.titleBM').text
                         addy = page4.at('.titleBM').next.text
+                        description = page4.at('hr').next.text.strip
+                        
                         more_info = page4.at('.normalLink').text
                         page5 = page4.link_with(:text => "Click here").click
                         website = page5.uri.to_s
@@ -28,6 +30,8 @@ namespace :hs do
                         phone = more_info.match(/(\D\d{3}\D\s\d{3}\D\d{4})/).captures                      
                         puts phone
                         puts website
+                        puts description
+                        puts "**********"
                                               
                         Place.create!(:name => name.strip, 
                                       :address => street.strip,
@@ -37,7 +41,7 @@ namespace :hs do
                                       :phone => phone[0].strip,
                                       :website => website,
                                       :category => "Masjid",
-                                      :description => "No one has entered a description yet, feel free to add one if you know it!")
+                                      :description => description)
                         
                       rescue
                         next
