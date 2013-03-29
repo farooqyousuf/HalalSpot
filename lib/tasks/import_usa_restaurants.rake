@@ -1,6 +1,6 @@
 namespace :hs do
-  desc "Imports all masjids in USA "
-  task :import_usa_masjids => :environment do
+  desc "Imports all restaurants in USA "
+  task :import_usa_restaurants => :environment do
     
     require 'nokogiri'
     require 'open-uri'
@@ -8,7 +8,7 @@ namespace :hs do
 
     agent = Mechanize.new
 
-    page = agent.get("http://www.salatomatic.com/b/United-States+125")    
+    page = agent.get("http://www.zabihah.com/b/United-States+125")    
     
       #loops through all state links
       page.search('.subtitleLink a').map{|a| page.uri.merge a[:href]}.each do |uri|
