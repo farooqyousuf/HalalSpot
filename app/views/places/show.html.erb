@@ -28,7 +28,7 @@
 						<strong>Type of Halal Spot:</strong><br><%= @place.category %><br><br>
 						<strong>Description:</strong><br><%= @place.description %><br><br>
 
-						<strong>Website:</strong><br><%= link_to @place.website, @place.website %><br><br>
+						<strong>Website:</strong><br><%= link_to @place.name , "#{@place.website}" %><br><br>
 						<!-- "http://www.#{@place.website}" I used this before to generate the link for the website --> 
 
 						<strong>Address:</strong><br><%= @place.address %><br>

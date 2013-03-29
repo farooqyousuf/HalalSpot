@@ -1,23 +1,38 @@
 namespace :hs do
-  desc "This rake task imports 1 geographic area only"
-  task :import_one_area => :environment do
+  desc "This rake task imports 1 masjid only"
+  task :onemasjid => :environment do
     
     require 'nokogiri'
     require 'open-uri'
     require 'mechanize'
-
+ 
     agent = Mechanize.new
     
     puts "Enter the page url from which you wish to import data: "
-    page = STDIN.gets
-    page2 = agent.get(page)  
+    page3 = STDIN.gets
+    # page2 = Nokogiri::HTML(open(page))
+    # page2 = agent.get(page)  
+    # page = agent.get("http://www.salatomatic.com/c/Southwest-Houston+82")    
     
                   #loops through all places in each region  
-                    page2.search('.subtitleLink a').map{|a| page2.uri.merge a[:href]}.each do |uri|
-                      
+                    # links = page2.css('.subtitleLink a')# .each do |x|
+                    #                         
+                    #                         links.each do |link| 
+                    #                           puts link['href']
+                    #                           url = link['href'].strip
+                        
+                        # x.map{|a| page2.uri.merge a[:href]}.each do |uri|
+                        # blah = URI.parse(x)
+                        #                         page4 = Nokogiri::HTML(open(URI.encode(x.to_s.strip)))
+                        page4 = agent.get(page3)
+                        puts page4.uri
+                        
+                        # Nokogiri::HTML(open(link['href'])).each do |page4|                      
+                       
+
                       begin
-                      
-                      page4 = agent.get uri
+                        # puts page4.at('.titleBM').text
+                        # puts page4.at('.titleBM').next.text
                                                 
                         name = page4.at('.titleBM').text
                         puts name
@@ -41,7 +56,6 @@ namespace :hs do
                         puts phone
                         
                         if page4.link_with(:text => "Click here").present?
-                          
                           begin
                             page5 = page4.link_with(:text => "Click here").click  
                             if page5.present?
@@ -51,13 +65,11 @@ namespace :hs do
                             end
                             rescue Exception
                           end
-                        
                         else
                           website = ""  
-                        end  
-                          
-                        puts website
+                        end
                         
+                        puts website
                         puts "**********"
                                               
                         Place.create!(:name => name.strip, 
@@ -72,8 +84,7 @@ namespace :hs do
                         
                       rescue
                         next
-                      end
-              end             
-        end
-      
+                   # end
+          end             
   end
+end
