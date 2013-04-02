@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130320135858) do
+ActiveRecord::Schema.define(:version => 20130402004254) do
 
   create_table "places", :force => true do |t|
     t.string   "name"
     t.string   "address"
-    t.string   "description"
+    t.text     "description"
     t.string   "website"
     t.string   "category"
     t.datetime "created_at",         :null => false
