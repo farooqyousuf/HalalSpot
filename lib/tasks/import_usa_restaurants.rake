@@ -51,7 +51,7 @@ namespace :hs do
                                       :zipcode => zipcode.strip,
                                       :phone => phone[0].strip,
                                       :website => website,
-                                      :category => "Masjid",
+                                      :category => "Restaurant",
                                       :description => description)
                         
                       rescue
