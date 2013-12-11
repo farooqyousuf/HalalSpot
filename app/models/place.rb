@@ -10,7 +10,7 @@ class Place < ActiveRecord::Base
   validates_attachment :image, content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
                                size: { less_than: 5.megabytes }
                                
-  # validates_uniqueness_of :name
+  validates_uniqueness_of :name, :scope => [:address, :website, :category, :state, :city, :zipcode]
   
   # For Google Maps                               
     def gmaps4rails_address
