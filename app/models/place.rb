@@ -16,7 +16,7 @@ class Place < ActiveRecord::Base
     def gmaps4rails_address
         "#{address}, #{city}, #{state}, #{zipcode}"
     end
-
+    
   geocoded_by :complete_address
   after_validation :geocode, :if => :check_address_changed?
   
@@ -29,6 +29,12 @@ class Place < ActiveRecord::Base
   def check_address_changed?
     attrs = %w(address city state zipcode)
     attrs.any?{|a| send "#{a}_changed?"}
+  end
+  
+  def gmaps4rails_infowindow
+    "<h4>#{name}</h4>" << "<small>#{address}, #{city}, #{state}</small>"
+    # <th><%= link_to place.name, place, :target => "_blank" %></th>
+     
   end
   
 end
