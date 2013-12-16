@@ -32,9 +32,7 @@ class Place < ActiveRecord::Base
   end
   
   def gmaps4rails_infowindow
-    "<h4>#{name}</h4>" << "<small>#{address}, #{city}, #{state}</small>"
-    # <th><%= link_to place.name, place, :target => "_blank" %></th>
-     
+    "<h4>#{name} (#{category})</h4>" << "<small>#{address}, #{city}, #{state}</small>"     
   end
   
 end
