@@ -8,7 +8,7 @@ class PlacesController < ApplicationController
       # location = (params[:q][:c].gsub(/[\(\)\[\]\"]/, '') || params[:q])
       # location = (params[:q][:c].gsub(/[\(\)\[\]\"]/, '') || params[:q])
       location = params[:c]      
-      @places = Place.scoped.near(location, 100, :order => :distance).paginate(:page => params[:page], :per_page => 10)
+      @places = Place.scoped.near(location, 100, :order => :distance).paginate(:page => params[:page], :per_page => 20)
       @json = @places.to_gmaps4rails
     else
       @places = Place.scoped.paginate(:page => params[:page], :per_page => 10)
