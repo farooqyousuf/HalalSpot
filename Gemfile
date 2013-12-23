@@ -5,8 +5,8 @@ gem 'devise'
 gem 'simple_form'
 gem 'paperclip', "~> 3.0"
 gem 'aws-sdk'
-gem 'gmaps4rails' #For Google Maps
-gem 'geocoder'
+gem 'gmaps4rails', "~> 1.5.6" #For Google Maps
+gem 'geocoder', "~> 1.1.1"
 gem 'bootstrap-components-helpers', :git => 'git://gist.github.com/2117187.git'
 gem 'mechanize'
 gem 'nokogiri'
